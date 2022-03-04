@@ -1,5 +1,85 @@
 html,
 
+html, body { height:100%; margin:0; padding:0; background:#F4F4F4; }
+.outerGif {
+  margin-top:50px;
+  display:inline-block;
+  position:relative;
+  background: url(https://25.media.tumblr.com/tumblr_md91o3v2o21rdi9rjo1_500.gif);
+  border-radius:50%;
+  background-size:cover;
+  width:300px; height:300px;
+  overflow:hidden;
+  /* Fix webkit rendering bug */
+  -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
+}
+.innerGif {
+  position:absolute;
+  left:-25%; bottom:50%;
+  width:150%; height:50%;
+  transform-origin:bottom center;
+  overflow:hidden;
+}
+.innerGif .image {
+  top:0%;
+  height:200%; width:100%;
+  background: url(https://25.media.tumblr.com/tumblr_mayd2coRwu1rhy8q9o1_500.gif) center center;
+  background-size:cover;
+}
+.overlay {
+  position:absolute;
+  top:50%; left:50%;
+  margin-top:-75px; margin-left:-75px;
+  width:150px; height:150px;
+  background:#F4F4F4;
+  border-radius:50%;
+}
+.overlay:before {
+  content:''; position:absolute;
+  width:170%; height:170%;
+  border-radius:50%;
+  margin-top:-68px; margin-left:-68px;
+  border:15px solid #F4F4F4;
+}
+.overlay .image {
+  position:absolute;
+  top:60%; left:50%;
+  width:70px; height:70px;
+  overflow:hidden;
+  background:url(https://25.media.tumblr.com/tumblr_ma235cIYyx1rzygcio1_500.gif) center 42%;
+  margin-top:-35px; margin-left:-35px;
+}
+.overlay .image:before {
+  content:''; position:absolute;
+  left:-80%;
+  height:120%; width:80%;
+  background:#F4F4F4;
+  transform-origin:top right;
+  transform:rotate(-33deg);
+}
+.overlay .image:after {
+  content:''; position:absolute;
+  right:-80%;
+  height:120%; width:80%;
+  background:#F4F4F4;
+  transform-origin:top left;
+  transform:rotate(33deg);
+}
+
+.cssAnim { left:15%; }
+.jsFollow { left:25%; }
+.cssAnim .innerGif { animation:elem 5s infinite; }
+.cssAnim .innerGif .image { animation:inner 5s infinite; }
+
+@keyframes elem {
+  30% { transform:rotate(-50deg); }
+  70% { transform:rotate(180deg); }
+}
+@keyframes inner {
+  30% { transform:rotate(50deg); }
+  70% { transform:rotate(-180deg); }
+}
+
 button
 {
   background-color: #361974;
